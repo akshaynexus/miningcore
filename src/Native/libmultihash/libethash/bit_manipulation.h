@@ -6,7 +6,7 @@
 #pragma once
 
 #include "builtins.h"
-#include "../support/attributes.h"
+#include "support/attributes.h"
 
 #include <stdint.h>
 
