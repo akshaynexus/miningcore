@@ -210,6 +210,7 @@
     <ClInclude Include="libethash\internal.h" />
     <ClInclude Include="libethash\io.h" />
     <ClInclude Include="libethash\mmap.h" />
+    <ClInclude Include="libethash\progpow.hpp" />
     <ClInclude Include="libethash\sha3.h" />
     <ClInclude Include="libethash\util.h" />
     <ClInclude Include="Lyra2.h" />
@@ -290,6 +291,7 @@
     <ClCompile Include="equi\uint256.cpp" />
     <ClCompile Include="equi\util.cpp" />
     <ClCompile Include="equi\utilstrencodings.cpp" />
+    <ClCompile Include="libethash\progpow.cpp" />
     <ClCompile Include="fresh.c" />
     <ClCompile Include="fugue.c" />
     <ClCompile Include="geek.c" />
