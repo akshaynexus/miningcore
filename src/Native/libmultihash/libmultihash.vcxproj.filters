@@ -173,6 +173,9 @@
     <ClInclude Include="libethash\mmap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libethash\progpow.hpp">
+      <Filter>Header Filers</Filter>
+    </ClInclude>
     <ClInclude Include="libethash\sha3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -530,6 +533,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="equi\support\cleanse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libethash\progpow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sha3\sm3.c">
