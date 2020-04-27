@@ -8,8 +8,8 @@
 #include "bit_manipulation.h"
 #include "endianness.hpp"
 #include "primes.h"
-#include <ethash/keccak.hpp>
-#include <ethash/progpow.hpp>
+#include "keccak.hpp"
+#include "progpow.hpp"
 
 #include <cassert>
 #include <cstdlib>
