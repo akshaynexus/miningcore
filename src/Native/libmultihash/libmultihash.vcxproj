@@ -202,6 +202,7 @@
     <ClInclude Include="keccak.h" />
     <ClInclude Include="KeccakP-800-SnP.h" />
     <ClInclude Include="lane.h" />
+    <ClInclude Include="libethash\bit_manipulation.h" />  
     <ClInclude Include="libethash\compiler.h" />
     <ClInclude Include="libethash\data_sizes.h" />
     <ClInclude Include="libethash\endian.h" />
@@ -210,9 +211,16 @@
     <ClInclude Include="libethash\internal.h" />
     <ClInclude Include="libethash\io.h" />
     <ClInclude Include="libethash\mmap.h" />
-    <ClInclude Include="libethash\progpow.hpp" />
     <ClInclude Include="libethash\sha3.h" />
     <ClInclude Include="libethash\util.h" />
+    <ClInclude Include="libethash\ethash\ethash.h" />
+    <ClInclude Include="libethash\ethash\ethash.hpp" />
+    <ClInclude Include="libethash\ethash\hash_types.h" />
+    <ClInclude Include="libethash\ethash\hash_types.hpp" />
+    <ClInclude Include="libethash\ethash\keccak.h" />
+    <ClInclude Include="libethash\ethash\keccak.hpp" />
+    <ClInclude Include="libethash\ethash\progpow.hpp" />
+    <ClInclude Include="libethash\support\attributes.h" />
     <ClInclude Include="Lyra2.h" />
     <ClInclude Include="Lyra2RE.h" />
     <ClInclude Include="neoscrypt.h" />
