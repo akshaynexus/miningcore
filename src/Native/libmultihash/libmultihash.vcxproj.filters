@@ -152,6 +152,9 @@
     <ClInclude Include="libethash\bit_manipulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libethash\builtins.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="libethash\compiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -180,6 +183,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libethash\mmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\primes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libethash\sha3.h">
@@ -475,6 +481,9 @@
     <ClCompile Include="libethash\internal.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="libethash\ethash\ethash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="libethash\io.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -482,6 +491,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="libethash\mmap_win32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libethash\primes.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="libethash\sha3.c">
