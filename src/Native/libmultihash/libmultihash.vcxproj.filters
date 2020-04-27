@@ -149,6 +149,9 @@
     <ClInclude Include="sha3\sph_whirlpool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libethash\bit_manipulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="libethash\compiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -158,7 +161,10 @@
     <ClInclude Include="libethash\endian.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libethash\ethash.h">
+    <ClInclude Include="libethash\endianness.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash-internal.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libethash\fnv.h">
@@ -170,16 +176,43 @@
     <ClInclude Include="libethash\io.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libethash\mmap.h">
+    <ClInclude Include="libethash\kiss99.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libethash\progpow.hpp">
-      <Filter>Header Filers</Filter>
+    <ClInclude Include="libethash\mmap.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libethash\sha3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libethash\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\ethash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\ethash.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\hash_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\hash_types.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\keccak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\keccak.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\progpow.hpp">
+      <Filter>Header Filers</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\ethash\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libethash\support\attributes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Lyra2.h">
