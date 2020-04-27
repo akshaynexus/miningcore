@@ -8,9 +8,9 @@
 
 #pragma once
 
-#include <ethash/ethash.hpp>
+#include "ethash.hpp"
 
-#include "endianness.hpp"
+#include "../endianness.hpp"
 
 #include <memory>
 #include <vector>
