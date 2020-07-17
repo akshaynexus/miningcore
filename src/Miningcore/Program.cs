@@ -110,13 +110,13 @@ namespace Miningcore
                 AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
                 Console.CancelKeyPress += OnCancelKeyPress;
 
-                if(!HandleCommandLineOptions(args, out var configFile))
+                if(!HandleCommandLineOptions(args, out var configDir))
                     return;
 
                 isShareRecoveryMode = shareRecoveryOption.HasValue();
 
                 Logo();
-                clusterConfig = ReadConfig(configFile);
+                clusterConfig = ReadConfig(configDir);
 
                 if(dumpConfigOption.HasValue())
                 {
@@ -218,9 +218,9 @@ namespace Miningcore
             }));
         }
 
-        private static bool HandleCommandLineOptions(string[] args, out string configFile)
+        private static bool HandleCommandLineOptions(string[] args, out string configDir)
         {
-            configFile = null;
+            configDir = null;
 
             var app = new CommandLineApplication(false)
             {
@@ -230,8 +230,7 @@ namespace Miningcore
             };
 
             var versionOption = app.Option("-v|--version", "Version Information", CommandOptionType.NoValue);
-            var configFileOption = app.Option("-c|--config <configfile>", "Configuration File",
-                CommandOptionType.SingleValue);
+            var configDirOption = app.Option("-c|--config-dir", "Configuration Directory", CommandOptionType.SingleValue);
             dumpConfigOption = app.Option("-dc|--dumpconfig",
                 "Dump the configuration (useful for trouble-shooting typos in the config file)",
                 CommandOptionType.NoValue);
@@ -247,13 +246,13 @@ namespace Miningcore
                 return false;
             }
 
-            if(!configFileOption.HasValue())
+            if(!configDirOption.HasValue())
             {
                 app.ShowHelp();
                 return false;
             }
 
-            configFile = configFileOption.Value();
+            configDir = configDirOption.Value();
 
             return true;
         }
@@ -282,11 +281,57 @@ namespace Miningcore
             MonitorGc();
         }
 
-        private static ClusterConfig ReadConfig(string file)
+        private static ClusterConfig ReadConfig(string directory)
         {
+            var clusterConfig = ReadClusterConfig(directory);
+
+            foreach(string file in Directory.EnumerateFiles(directory, "*.json"))
+            {
+                try
+                {
+                    Console.WriteLine($"Loading configuration file {file}\n");
+
+                    var serializer = JsonSerializer.Create(new JsonSerializerSettings
+                    {
+                        ContractResolver = new CamelCasePropertyNamesContractResolver()
+                    });
+
+                    using(var reader = new StreamReader(file, Encoding.UTF8))
+                    {
+                        using(var jsonReader = new JsonTextReader(reader))
+                        {
+                            clusterConfig.Pools.Append(serializer.Deserialize<PoolConfig>(jsonReader));
+                        }
+                    }
+                }
+
+                catch(JsonSerializationException ex)
+                {
+                    HumanizeJsonParseException(ex);
+                    throw;
+                }
+
+                catch(JsonException ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    throw;
+                }
+
+                catch(IOException ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    throw;
+                }
+            }
+            return clusterConfig;
+        }
+
+        private static ClusterConfig ReadClusterConfig(string directory)
+        {
+            var file = Path.Combine(directory, "pools", "cluster.json");
             try
             {
-                Console.WriteLine($"Using configuration file {file}\n");
+                Console.WriteLine($"Loading configuration file {file}\n");
 
                 var serializer = JsonSerializer.Create(new JsonSerializerSettings
                 {
